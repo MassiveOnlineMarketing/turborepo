@@ -25,8 +25,5 @@
       "src": "/docs/(.*)",
       "dest": "/apps/web/$1"
     }
-  ],
-  "env": {
-    "PNPM_VERSION": "8.0.0"
-  }
+  ]
 }
