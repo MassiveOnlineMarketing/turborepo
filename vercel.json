@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "apps/docs/package.json",
+      "use": "@vercel/next",
+      "config": {
+        "distDir": "apps/docs/.next"
+      }
+    },
+    {
+      "src": "apps/web/package.json",
+      "use": "@vercel/next",
+      "config": {
+        "distDir": "apps/web/.next"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(?!docs|app).*",
+      "dest": "/apps/docs/$1"
+    },
+    {
+      "src": "/docs/(.*)",
+      "dest": "/apps/web/$1"
+    }
+  ],
+  "env": {
+    "PNPM_VERSION": "8.0.0"
+  }
+}
